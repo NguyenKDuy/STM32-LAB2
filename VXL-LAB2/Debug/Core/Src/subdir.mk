@@ -5,8 +5,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/ex10.c \
 ../Core/Src/ex8.c \
-../Core/Src/ex9.c \
 ../Core/Src/main.c \
 ../Core/Src/software_interrupt.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
@@ -16,8 +16,8 @@ C_SRCS += \
 ../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
+./Core/Src/ex10.o \
 ./Core/Src/ex8.o \
-./Core/Src/ex9.o \
 ./Core/Src/main.o \
 ./Core/Src/software_interrupt.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
@@ -27,8 +27,8 @@ OBJS += \
 ./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
+./Core/Src/ex10.d \
 ./Core/Src/ex8.d \
-./Core/Src/ex9.d \
 ./Core/Src/main.d \
 ./Core/Src/software_interrupt.d \
 ./Core/Src/stm32f1xx_hal_msp.d \

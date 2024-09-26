@@ -5,13 +5,14 @@
  *      Author: My Laptop
  */
 
-#ifndef INC_EX9_H_
-#define INC_EX9_H_
+#ifndef INC_EX10_H_
+#define INC_EX10_H_
 
 #include "main.h"
 
 void updateLEDMatrix(int index);
 void displayLEDMatrix (uint8_t item, int index);
-void ex9Run();
+void shiftLEDMatrix();
+void ex10Run();
 
-#endif /* INC_EX9_H_ */
+#endif /* INC_EX10_H_ */

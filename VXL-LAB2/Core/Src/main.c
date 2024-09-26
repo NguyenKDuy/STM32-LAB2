@@ -18,12 +18,12 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <ex10.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <ex8.h>
-#include <ex9.h>
 #include "software_interrupt.h"
 /* USER CODE END Includes */
 
@@ -102,7 +102,6 @@ int main(void)
   setTimer2(250);
   while (1)
   {
-
 	  if(timer0_flag == 1){
 		  setTimer0(1000);
 		  second++;
@@ -123,11 +122,11 @@ int main(void)
 	  if (timer1_flag == 1) {
 		  setTimer1(250);
 		  ex4Run(); //contain update7SEG with automatic index to go through
-
+		  ex10Run();
 	  }
 	  if (timer2_flag == 1) {
-		  setTimer2(50);
-		  ex9Run();
+		  setTimer2(2000);
+		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 	  }
 
 
