@@ -5,7 +5,7 @@
  *      Author: My Laptop
  */
 
-#include <ex5.h>
+#include <ex7.h>
 
 const int MAX_LED = 4;
 int index_led = 0;

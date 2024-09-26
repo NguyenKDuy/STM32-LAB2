@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <ex5.h>
+#include <ex7.h>
 #include "main.h"
 #include "software_interrupt.h"
 
@@ -67,7 +67,8 @@ static void MX_TIM2_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	hour = 15, minute = 9;
+	int second = 50;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -99,9 +100,23 @@ int main(void)
   while (1)
   {
 	  if(timer0_flag == 1){
-		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		  setTimer0(2000);
+		  setTimer0(1000);
+		  second++;
+		  if (second >= 60) {
+			  second = 0;
+			  minute++;
+		  }
+		  if (minute >= 60) {
+			  minute = 0;
+			  hour++;
+		  }
+		  if (hour >= 24) {
+			  hour = 0;
+		  }
+		  updateClockBuffer();
+		  blinkDOT();
 	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
