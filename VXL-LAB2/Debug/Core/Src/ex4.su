@@ -1,0 +1,4 @@
+ex4.c:14:6:display7SEG	16	static
+ex4.c:117:6:blinkDOT	8	static
+ex4.c:122:6:update7SEG	16	static
+ex4.c:155:6:ex4Run	8	static

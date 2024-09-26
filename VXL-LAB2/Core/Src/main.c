@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <ex3.h>
+#include <ex4.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -237,15 +237,15 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-	int counter = 50;
-	int counter1 = 150; // make sync
+	int counter = 25;
+	int counter1 = 125; // make sync
 
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		if (counter > 0) {
 			counter --;
 			if (counter <= 0) {
-				counter = 50; //50 * 10ms = 0.5s (7seg leds)
-				ex3Run();
+				counter = 25; //25 * 10ms = 0.25s (0.25s for each LED => 1s for the 4-LED => 1Hz)
+				ex4Run();
 			}
 		}
 		if (counter1 > 0) {

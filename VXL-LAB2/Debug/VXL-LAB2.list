@@ -682,26 +682,26 @@ void update7SEG (int index){
  80005d0:	40010800 	.word	0x40010800
  80005d4:	20000000 	.word	0x20000000
 
-080005d8 <ex3Run>:
+080005d8 <ex4Run>:
 
-void ex3Run() {
+void ex4Run() {
  80005d8:	b580      	push	{r7, lr}
  80005da:	af00      	add	r7, sp, #0
 	if (index_led > 3) {
- 80005dc:	4b08      	ldr	r3, [pc, #32]	; (8000600 <ex3Run+0x28>)
+ 80005dc:	4b08      	ldr	r3, [pc, #32]	; (8000600 <ex4Run+0x28>)
  80005de:	681b      	ldr	r3, [r3, #0]
  80005e0:	2b03      	cmp	r3, #3
- 80005e2:	dd02      	ble.n	80005ea <ex3Run+0x12>
+ 80005e2:	dd02      	ble.n	80005ea <ex4Run+0x12>
 		index_led = 0;
- 80005e4:	4b06      	ldr	r3, [pc, #24]	; (8000600 <ex3Run+0x28>)
+ 80005e4:	4b06      	ldr	r3, [pc, #24]	; (8000600 <ex4Run+0x28>)
  80005e6:	2200      	movs	r2, #0
  80005e8:	601a      	str	r2, [r3, #0]
 	}
 	update7SEG(index_led++);
- 80005ea:	4b05      	ldr	r3, [pc, #20]	; (8000600 <ex3Run+0x28>)
+ 80005ea:	4b05      	ldr	r3, [pc, #20]	; (8000600 <ex4Run+0x28>)
  80005ec:	681b      	ldr	r3, [r3, #0]
  80005ee:	1c5a      	adds	r2, r3, #1
- 80005f0:	4903      	ldr	r1, [pc, #12]	; (8000600 <ex3Run+0x28>)
+ 80005f0:	4903      	ldr	r1, [pc, #12]	; (8000600 <ex4Run+0x28>)
  80005f2:	600a      	str	r2, [r1, #0]
  80005f4:	4618      	mov	r0, r3
  80005f6:	f7ff ff65 	bl	80004c4 <update7SEG>
@@ -1074,8 +1074,8 @@ static void MX_GPIO_Init(void)
 080007e0 <HAL_TIM_PeriodElapsedCallback>:
 
 /* USER CODE BEGIN 4 */
-	int counter = 50;
-	int counter1 = 150; // make sync
+	int counter = 25;
+	int counter1 = 125; // make sync
 
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
  80007e0:	b580      	push	{r7, lr}
@@ -1098,12 +1098,12 @@ static void MX_GPIO_Init(void)
  80007fc:	681b      	ldr	r3, [r3, #0]
  80007fe:	2b00      	cmp	r3, #0
  8000800:	dc04      	bgt.n	800080c <HAL_TIM_PeriodElapsedCallback+0x2c>
-				counter = 50; //50 * 10ms = 0.5s (7seg leds)
+				counter = 25; //25 * 10ms = 0.25s (0.25s for each LED => 1s for the 4-LED => 1Hz)
  8000802:	4b0d      	ldr	r3, [pc, #52]	; (8000838 <HAL_TIM_PeriodElapsedCallback+0x58>)
- 8000804:	2232      	movs	r2, #50	; 0x32
+ 8000804:	2219      	movs	r2, #25
  8000806:	601a      	str	r2, [r3, #0]
-				ex3Run();
- 8000808:	f7ff fee6 	bl	80005d8 <ex3Run>
+				ex4Run();
+ 8000808:	f7ff fee6 	bl	80005d8 <ex4Run>
 			}
 		}
 		if (counter1 > 0) {

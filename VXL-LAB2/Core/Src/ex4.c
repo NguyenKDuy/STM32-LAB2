@@ -5,7 +5,7 @@
  *      Author: My Laptop
  */
 
-#include <ex3.h>
+#include <ex4.h>
 
 const int MAX_LED = 4;
 int index_led = 0;
@@ -152,7 +152,7 @@ void update7SEG (int index){
 	}
 }
 
-void ex3Run() {
+void ex4Run() {
 	if (index_led > 3) {
 		index_led = 0;
 	}
