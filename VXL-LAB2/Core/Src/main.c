@@ -18,11 +18,11 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <ex2.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ex1.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -237,13 +237,22 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-	int counter = 50; //50 * 10ms = 0.5s
+	int counter = 50;
+	int counter1 = 150; // make sync
+
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		if (counter > 0) {
 			counter --;
 			if (counter <= 0) {
-				counter = 50;
-				ex1Run();
+				counter = 50; //50 * 10ms = 0.5s (7seg leds)
+				ex2Run();
+			}
+		}
+		if (counter1 > 0) {
+			counter1 --;
+			if (counter1 <= 0) {
+				counter1 = 100; //100 * 10ms = 1s (blinky dot)
+				blinkDOT();
 			}
 		}
 	}
