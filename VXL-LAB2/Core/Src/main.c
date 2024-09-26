@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "ex1.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -237,13 +237,15 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter = 0;
+	int counter = 50; //50 * 10ms = 0.5s
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-		counter--;
-		 if(counter <= 0){
-		 counter = 100;
-		 HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		 }
+		if (counter > 0) {
+			counter --;
+			if (counter <= 0) {
+				counter = 50;
+				ex1Run();
+			}
+		}
 	}
 
 /* USER CODE END 4 */
