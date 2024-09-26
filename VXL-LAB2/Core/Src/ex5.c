@@ -5,11 +5,14 @@
  *      Author: My Laptop
  */
 
-#include <ex4.h>
+#include <ex5.h>
 
 const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer[4] = {1, 2, 3, 4};
+
+int minute = 0;
+int hour = 0;
 
 void display7SEG(int num){
 	switch (num) {
@@ -159,3 +162,23 @@ void ex4Run() {
 	update7SEG(index_led++);
 }
 
+void updateClockBuffer() {
+	//hour:
+	if (hour < 10) {
+		led_buffer[0] = 0;
+		led_buffer[1] = hour;
+	}
+	else {
+		led_buffer[0] = hour/10;
+		led_buffer[1] = hour % 10;
+	}
+	//minute:
+	if (minute < 10) {
+		led_buffer[2] = 0;
+		led_buffer[3] = minute;
+	}
+	else {
+		led_buffer[2] = minute/10;
+		led_buffer[3] = minute % 10;
+	}
+}

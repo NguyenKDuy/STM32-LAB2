@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <ex4.h>
+#include <ex5.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -66,7 +66,8 @@ static void MX_TIM2_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	hour = 15, minute = 8;
+	int second = 50;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -96,6 +97,20 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  second++;
+	  if (second >= 60) {
+		  second = 0;
+		  minute++;
+	  }
+	  if (minute >= 60) {
+		  minute = 0;
+		  hour++;
+	  }
+	  if (hour >= 24) {
+		  hour = 0;
+	  }
+	  updateClockBuffer();
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

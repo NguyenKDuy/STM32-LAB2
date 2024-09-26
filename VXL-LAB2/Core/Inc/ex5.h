@@ -5,14 +5,18 @@
  *      Author: My Laptop
  */
 
-#ifndef INC_EX4_H_
-#define INC_EX4_H_
+#ifndef INC_EX5_H_
+#define INC_EX5_H_
 
 #include "main.h"
+
+extern int hour;
+extern int minute;
 
 void display7SEG(int num);
 void blinkDOT();
 void update7SEG (int index);
+void updateClockBuffer();
 void ex4Run();
 
-#endif /* INC_EX4_H_ */
+#endif /* INC_EX5_H_ */
