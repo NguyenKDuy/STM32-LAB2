@@ -1,0 +1,4 @@
+ex3.c:14:6:display7SEG	16	static
+ex3.c:117:6:blinkDOT	8	static
+ex3.c:122:6:update7SEG	16	static
+ex3.c:155:6:ex3Run	8	static

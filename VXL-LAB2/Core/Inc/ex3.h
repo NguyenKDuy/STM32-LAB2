@@ -5,12 +5,14 @@
  *      Author: My Laptop
  */
 
-#ifndef INC_EX2_H_
-#define INC_EX2_H_
+#ifndef INC_EX3_H_
+#define INC_EX3_H_
 
 #include "main.h"
 
 void display7SEG(int num);
 void blinkDOT();
-void ex2Run();
-#endif /* INC_EX2_H_ */
+void update7SEG (int index);
+void ex3Run();
+
+#endif /* INC_EX3_H_ */

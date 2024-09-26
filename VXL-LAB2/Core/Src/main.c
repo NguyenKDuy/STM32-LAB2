@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <ex2.h>
+#include <ex3.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -245,7 +245,7 @@ static void MX_GPIO_Init(void)
 			counter --;
 			if (counter <= 0) {
 				counter = 50; //50 * 10ms = 0.5s (7seg leds)
-				ex2Run();
+				ex3Run();
 			}
 		}
 		if (counter1 > 0) {
