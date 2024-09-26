@@ -18,7 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <ex7.h>
+#include <ex8.h>
 #include "main.h"
 #include "software_interrupt.h"
 
@@ -96,7 +96,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer0(1000);
+  setTimer0(1250);
+  setTimer1(250);
   while (1)
   {
 	  if(timer0_flag == 1){
@@ -115,6 +116,10 @@ int main(void)
 		  }
 		  updateClockBuffer();
 		  blinkDOT();
+	  }
+	  if (timer1_flag == 1) {
+		  setTimer1(250);
+		  ex4Run(); //contain update7SEG with automatic index to go through
 	  }
 
     /* USER CODE END WHILE */
@@ -260,6 +265,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		timerRun0();
+		timerRun1();
 	}
 
 /* USER CODE END 4 */
