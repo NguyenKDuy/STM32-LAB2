@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include <ex5.h>
 #include "main.h"
+#include "software_interrupt.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -66,8 +67,7 @@ static void MX_TIM2_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	hour = 15, minute = 8;
-	int second = 50;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -95,22 +95,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  setTimer0(1000);
   while (1)
   {
-	  second++;
-	  if (second >= 60) {
-		  second = 0;
-		  minute++;
+	  if(timer0_flag == 1){
+		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+		  setTimer0(2000);
 	  }
-	  if (minute >= 60) {
-		  minute = 0;
-		  hour++;
-	  }
-	  if (hour >= 24) {
-		  hour = 0;
-	  }
-	  updateClockBuffer();
-	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -252,24 +243,8 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-	int counter = 25;
-	int counter1 = 125; // make sync
-
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-		if (counter > 0) {
-			counter --;
-			if (counter <= 0) {
-				counter = 25; //25 * 10ms = 0.25s (0.25s for each LED => 1s for the 4-LED => 1Hz)
-				ex4Run();
-			}
-		}
-		if (counter1 > 0) {
-			counter1 --;
-			if (counter1 <= 0) {
-				counter1 = 100; //100 * 10ms = 1s (blinky dot)
-				blinkDOT();
-			}
-		}
+		timerRun0();
 	}
 
 /* USER CODE END 4 */
