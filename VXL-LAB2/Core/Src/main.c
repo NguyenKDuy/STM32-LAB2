@@ -18,12 +18,13 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <ex8.h>
 #include "main.h"
-#include "software_interrupt.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <ex8.h>
+#include <ex9.h>
+#include "software_interrupt.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,8 +99,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   setTimer0(1250);
   setTimer1(250);
+  setTimer2(250);
   while (1)
   {
+
 	  if(timer0_flag == 1){
 		  setTimer0(1000);
 		  second++;
@@ -120,7 +123,13 @@ int main(void)
 	  if (timer1_flag == 1) {
 		  setTimer1(250);
 		  ex4Run(); //contain update7SEG with automatic index to go through
+
 	  }
+	  if (timer2_flag == 1) {
+		  setTimer2(50);
+		  ex9Run();
+	  }
+
 
     /* USER CODE END WHILE */
 
@@ -266,6 +275,7 @@ static void MX_GPIO_Init(void)
 	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		timerRun0();
 		timerRun1();
+		timerRun2();
 	}
 
 /* USER CODE END 4 */

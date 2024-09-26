@@ -1,4 +1,6 @@
-software_interrupt.c:15:6:setTimer0	16	static
-software_interrupt.c:20:6:timerRun0	4	static
-software_interrupt.c:29:6:setTimer1	16	static
-software_interrupt.c:34:6:timerRun1	4	static
+software_interrupt.c:17:6:setTimer0	16	static
+software_interrupt.c:22:6:timerRun0	4	static
+software_interrupt.c:31:6:setTimer1	16	static
+software_interrupt.c:36:6:timerRun1	4	static
+software_interrupt.c:45:6:setTimer2	16	static
+software_interrupt.c:50:6:timerRun2	4	static
