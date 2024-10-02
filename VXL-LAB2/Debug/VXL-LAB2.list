@@ -1280,8 +1280,8 @@ int main(void)
  80009d8:	681b      	ldr	r3, [r3, #0]
  80009da:	2b01      	cmp	r3, #1
  80009dc:	d1c6      	bne.n	800096c <main+0x40>
-		  setTimer2(50);
- 80009de:	2032      	movs	r0, #50	; 0x32
+		  setTimer2(10);
+ 80009de:	200a      	movs	r0, #10
  80009e0:	f000 f96e 	bl	8000cc0 <setTimer2>
 		  ex9Run();
  80009e4:	f7ff ff8c 	bl	8000900 <ex9Run>

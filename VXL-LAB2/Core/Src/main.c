@@ -126,7 +126,7 @@ int main(void)
 
 	  }
 	  if (timer2_flag == 1) {
-		  setTimer2(50);
+		  setTimer2(10);
 		  ex9Run();
 	  }
 
