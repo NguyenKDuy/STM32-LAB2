@@ -100,6 +100,7 @@ int main(void)
   setTimer0(1250);
   setTimer1(250);
   setTimer2(250);
+  setTimer3(250);
   while (1)
   {
 	  if(timer0_flag == 1){
@@ -122,11 +123,14 @@ int main(void)
 	  if (timer1_flag == 1) {
 		  setTimer1(250);
 		  ex4Run(); //contain update7SEG with automatic index to go through
-		  ex10Run();
 	  }
 	  if (timer2_flag == 1) {
 		  setTimer2(2000);
 		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+	  }
+	  if (timer3_flag == 1) {
+		  setTimer3(10);
+		  ex10Run();
 	  }
 
 
@@ -275,6 +279,7 @@ static void MX_GPIO_Init(void)
 		timerRun0();
 		timerRun1();
 		timerRun2();
+		timerRun3();
 	}
 
 /* USER CODE END 4 */
